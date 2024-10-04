@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        header {
+            border-bottom: 1px solid gray;
+        }
+        .nav {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+    {% block style %}{% endblock %}
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <header>
+        <ul class="nav">
+            <li><a href="{% url 'user_index' %}">User</a></li>
+            <li><a href="{% url 'stores' %}">Stores</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+
+</html>

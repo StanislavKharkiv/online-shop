@@ -19,3 +19,6 @@ postgres_data/
 *.log
 
 __pycache__/
+static/
+
+**/media/shop/

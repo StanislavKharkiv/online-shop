@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block style %}
+    <link type="text/css" href="{% static 'store/css/styles.css' %}" rel="stylesheet">
+    {% endblock %}
+    <title>Stores</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="store_header">
+        <h3>{{title}}</h3>
+        <a href="{% url 'create_store' %}">Create Store</a>
+    </div>
+    {% for store in stores %}
+    <div class="store_block">
+        <img src="{{store.logo.url}}" width="100" alt="Store Logo" />
+        <div>
+            <div class="store_title"><span>Store name:</span> {{store.name}}</div>
+            <div class="store_title"><span>Description:</span> {{store.description}}</div>
+            <a href="{% url 'store_detail' store.id %}">View Details</a>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
+</body>
+
+</html>
