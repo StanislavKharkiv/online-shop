@@ -1,6 +1,18 @@
 <html>
-<h1> Register now! </h1>
 
+<head>
+    <title>Sign up</title>
+    <style>
+        .input {
+            display: block;
+            width: 300px;
+            height: 30px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<h1>Sign up</h1>
 <form method="POST" autocomplete="off">
     {% csrf_token %}
     {{ registerform.as_p }}

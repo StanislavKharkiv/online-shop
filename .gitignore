@@ -19,6 +19,6 @@ postgres_data/
 *.log
 
 __pycache__/
-
-media/
 static/
+
+**/media/shop/
