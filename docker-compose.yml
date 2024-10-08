@@ -3,7 +3,11 @@ services:
     build: ./shop
     ports:
       - "8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      sh -c "python manage.py collectstatic --noinput &&
+             python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./shop:/code
     depends_on:
@@ -15,5 +19,3 @@ services:
     image: postgres:15.8
     volumes:
       - ./postgres_data:/var/lib/postgresql/data/
-    environment:
-      - "POSTGRES_HOST_AUTH_METHOD=trust"
