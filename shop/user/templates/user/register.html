@@ -1,16 +1,12 @@
+{% load static %}
+
 <html>
 
 <head>
     <title>Sign up</title>
-    <style>
-        .input {
-            display: block;
-            width: 300px;
-            height: 30px;
-            border: 1px solid #ccc;
-            padding: 5px;
-        }
-    </style>
+    {% block style %}
+    <link type="text/css" href="{% static 'store/css/styles.css' %}" rel="stylesheet">
+    {% endblock %}
 </head>
 <h1>Sign up</h1>
 <form method="POST" autocomplete="off">
@@ -18,8 +14,7 @@
     {{ registerform.as_p }}
     <input type="submit" value="Register" />
 </form>
-<div>
-    <a href="{% url 'login' %}"> Login </a>
-</div>
+<hr />
+<a href="{% url 'login' %}"> Login </a>
 
 </html>

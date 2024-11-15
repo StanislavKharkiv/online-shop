@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
 <body>
     {% block content %}
+    {% block style %}
+    <link type="text/css" href="{% static 'store/css/styles.css' %}" rel="stylesheet">
+    {% endblock %}
     <style>
         .groups {
             display: flex;
@@ -16,11 +20,11 @@
     <div class="groups">
         <h5>User groups:</h5>
         {% if groups %}
-            {% for group in groups %}
-                <span>{{ group }}</span>
-            {% endfor %}
+        {% for group in groups %}
+        <span>{{ group }}</span>
+        {% endfor %}
         {% else %}
-            <span>No groups</span>
+        <span>No groups</span>
         {% endif %}
     </div>
 

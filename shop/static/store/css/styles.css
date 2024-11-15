@@ -1,0 +1,57 @@
+/* general */
+body {
+    padding: 1em;
+}
+input, textarea {
+    display: block;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 4px 0;
+    padding: 4px 6px;
+}
+
+button, input[type=submit] {
+    min-width: 100px;
+    min-height: 30px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+button:hover, input[type=submit]:hover {
+    background-color: darkgreen;
+}
+
+/* store */
+.store_title:nth-child('even') {
+    background-color: rgb(169, 166, 166);
+    padding: 4px;
+}
+
+.store_title span {
+    font-weight: bold;
+}
+
+.store_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    padding: 0 10px;
+}
+
+.store_header > a {
+    text-decoration: none;
+    color: green;
+    border: 1px solid;
+    padding: 5px;
+}
+
+.store_block {
+    border-bottom: 2px solid;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

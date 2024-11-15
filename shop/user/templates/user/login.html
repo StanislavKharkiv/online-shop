@@ -1,21 +1,27 @@
+{% load static %}
+
 <html>
 
 <head>
-    <title>Login</title>
+  <title>Login</title>
+  {% block style %}
+  <link type="text/css" href="{% static 'store/css/styles.css' %}" rel="stylesheet">
+  {% endblock %}
 </head>
 <h1> Login </h1>
 {% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-  </ul>
+<ul class="messages">
+  {% for message in messages %}
+  <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+  {% endfor %}
+</ul>
 {% endif %}
 <form method="POST" autocomplete="off">
-    {% csrf_token %}
-    {{ loginform.as_p }}
-    <input type="submit" value="Login" />
-    <a href="{% url 'register' %}"> Registration </a>
+  {% csrf_token %}
+  {{ loginform.as_p }}
+  <input type="submit" value="Login" />
 </form>
+<hr />
+<a href="{% url 'register' %}"> Registration </a>
 
 </html>
