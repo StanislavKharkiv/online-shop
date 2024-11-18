@@ -27,7 +27,15 @@ class StoreView(LoginRequiredMixin, TemplateView):
         context["stores"] = Store.objects.all()
         context["title"] = "Stores"
         return context
+    
+class UserStoresView(LoginRequiredMixin, TemplateView):
+    template_name = "store/index.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["stores"] = Store.objects.filter(owner=self.request.user)
+        context["title"] = "My stores"
+        return context
 
 class StoreDetailView(LoginRequiredMixin, TemplateView):
     template_name = "store/store_detail.html"

@@ -17,6 +17,7 @@
     {% block content %}
     <div class="store_header">
         <h3>{{title}}</h3>
+        <a href="{% url 'user_stores' user.username %}">My Stores</a>
         <a href="{% url 'create_store' %}">Create Store</a>
     </div>
     {% for store in stores %}
