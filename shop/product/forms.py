@@ -15,6 +15,7 @@ class CreateProductForm(forms.ModelForm):
             product.save()
         return product
 
+
 class EditProductForm(forms.ModelForm):
     class Meta:
         model = Product
