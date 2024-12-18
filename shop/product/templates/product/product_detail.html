@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block style %}
+    <link type="text/css" href="{% static 'product/css/styles.css' %}" rel="stylesheet">
+    {% endblock %}
+    <title>Product</title>
+</head>
+
+<body>
+    {% block content %}
+    <img src="{{product.logo.url}}" width="300" alt="product Logo" />
+    <h1 class="product_title">{{ product.name }}</h1>
+    <section class="product_info">
+        <div><span class="title">ID:</span><span class="value">{{ product.id }}</span></div>
+        <div><span class="title">Created:</span><span class="value">{{ product.created_at|date:"d/m/Y" }}</span></div>
+        <div><span class="title">Prise:</span><span class="value">{{ product.price }}</span></div>
+        <div><div class="title">Description:</div><p class="value">{{ product.description }}</p></div>
+    </section>
+
+    <a href="{% url 'product_edit' product.id %}">Edit product</a>
+    {% endblock %}
+</body>

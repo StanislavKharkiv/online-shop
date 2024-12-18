@@ -2,10 +2,42 @@
 
 <body>
     {% block content %}
+    <style>
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .products>div {
+            border: 1px solid gray;
+            padding: 10px;
+        }
+    </style>
     <h1>{{ store.name }}</h1>
     <img width="200" src="{{ store.logo.url }}" alt="Store Logo" />
     <p>{{ store.description }}</p>
     <div class="store_title"><span>Created:</span> {{store.created_at}}</div>
     <div class="store_title"><span>Owner:</span> {{store.owner}}</div>
+    {% if is_owner %}
+    <a href="{% url 'create_product' %}?store_id={{store.id}}">Add product</a>
+    {% endif %}
+
+    <hr>
+    <h2>Store products</h2>
+    <hr>
+    <div class="products">
+        {% for product in products %}
+        <div>
+            <img src="{{product.logo.url}}" width="100" alt="product Logo" />
+            <div>
+                <div>{{product.name}}</div>
+                <a href="{% url 'product_detail' product.id %}">View product</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
     {% endblock %}
 </body>

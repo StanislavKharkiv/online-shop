@@ -7,6 +7,7 @@ ENV/
 env.bak/
 venv.bak/
 .vscode
+.DS_Store
 
 # PyCharm
 .idea/
@@ -21,4 +22,5 @@ postgres_data/
 __pycache__/
 **/static/admin/
 
-**/media/shop/
+shop/media/**
+!shop/media/default-shop-logo.png

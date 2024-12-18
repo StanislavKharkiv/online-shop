@@ -5,15 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* general */
+        body {
+            padding: 1em;
+        }
+
+        input:not([type=checkbox]),
+        textarea {
+            display: block;
+            border: 1px solid;
+            border-radius: 5px;
+            margin: 4px 0;
+            padding: 4px 6px;
+        }
+
+        button,
+        input[type=submit] {
+            min-width: 100px;
+            min-height: 30px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        button:hover,
+        input[type=submit]:hover {
+            background-color: darkgreen;
+        }
+
         header {
             border-bottom: 1px solid gray;
         }
+
         .nav {
             list-style: none;
             display: flex;
             align-items: center;
             gap: 20px;
         }
+
         .nav>li:last-child a {
             color: red;
         }
@@ -27,6 +59,7 @@
         <ul class="nav">
             <li><a href="{% url 'user_index' %}">User</a></li>
             <li><a href="{% url 'stores' %}">Stores</a></li>
+            <li><a href="{% url 'products' %}">Products</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
     </header>
