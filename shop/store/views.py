@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View, TemplateView
 from store.forms import CreateStoreForm
 from store.models import Store
+from product.models import Product
 
 
 class CreateStoreView(LoginRequiredMixin, View):
@@ -42,5 +43,10 @@ class StoreDetailView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["store"] = Store.objects.get(id=self.kwargs.get("store_id"))
+        store = Store.objects.get(id=self.kwargs.get("store_id"))
+        products = Product.objects.filter(store_id=self.kwargs.get("store_id"))
+        context["is_owner"] = store.owner_id == self.request.user.id
+        context["user"] = self.request.user
+        context["store"] = store
+        context["products"] = products
         return context

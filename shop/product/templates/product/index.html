@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block style %}
+    <link type="text/css" href="{% static 'product/css/styles.css' %}" rel="stylesheet">
+    {% endblock %}
+    <title>Products</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="product_header">
+        <h3>{{title}}</h3>
+        <!-- <a href="{% url 'products' %}">My products</a> -->
+        <!-- <a href="{% url 'create_product' %}">Create product</a> -->
+    </div>
+    <section class="product_list">
+        {% for product in products %}
+        <div class="product_block">
+            <img src="{{product.logo.url}}" width="100" alt="product Logo" />
+            <div>
+                <div class="product_title">{{product.name}}</div>
+                <a href="{% url 'product_detail' product.id %}">View product</a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    {% endblock %}
+</body>

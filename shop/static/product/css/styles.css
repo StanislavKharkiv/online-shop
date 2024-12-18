@@ -1,0 +1,39 @@
+body {
+    padding: 2em;
+}
+
+.product_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+.product_block {
+    min-width: 200px;
+    padding: 10px;
+    box-shadow: 0 0 2px 1px gray;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.product_block:hover {
+    box-shadow: 0 0 4px 1px gray;
+    border: 1px solid gray;
+}
+
+.product_title {
+    font-size: 1.5rem;
+    border-bottom: 1px solid;
+}
+
+.product_info > div {
+    margin-bottom: 10px;
+}
+
+.product_info .title {
+    font-weight: bold;
+    color: gray;
+    padding-right: 10px;
+}
